@@ -1,2 +1,17 @@
 # r2
 gh me la pela
+
+
+// ELO329
+// --- --- ---
+
+// PARADIGMAS : PROGRAMACION { DECLARATIVA , IMPERATIVA , ... }
+// PROGRAMACION IMPERATIVA   { PROCEDURAL , OO , ... }
+// PRORAMACION OO == PRORAMACION ORIENTADA A OBJETOS
+
+
+
+
+
+
+
