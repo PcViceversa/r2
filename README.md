@@ -253,6 +253,24 @@ class Ayudante extends Estudiante implements Funcionario_ITRFZ {
 // LAS CLASES ANIDADES ESTATICAS SE LLAMAN CLASES ANIDADAS ESTATICAS                  { DE LA CLASE }
 // LAS CLASES ANIDADES NO ESTATICAS SE LLAMAN CLASES ANIDADAS NO ESTATICAS O INTERNAS { DEL OBJETO  }
 
+public class Main
+{
+    public static void main(String[] args) {
+    ClaseExterna externa = new ClaseExterna(10);
+
+        // Crear una instancia de ClaseAnidada
+        ClaseExterna.ClaseAnidada anidada = externa.new ClaseAnidada(20);
+
+        // Acceder a los métodos de ClaseAnidada
+        anidada.mostrarValorAnidado();
+        anidada.mostrarValorExternoDesdeAnidado();
+
+        // Acceder a los métodos de ClaseExterna
+        externa.mostrarValorExterno();
+    }
+}
+
+
 // UNA CLASE INTERNA QUE SE INSTACIA SOLO UNA VEZ PUEDE COMPRIMERSE EN UNA SOLA CLASE ANONIMA
 // SI UNA CLASE ANONIMA TIENE EXACTAMENTE 1 METODO PUEDE SER NOTADA POR UN EXPRECION LAMBDA
 
