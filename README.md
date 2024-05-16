@@ -66,7 +66,7 @@ class Main
 // LA CLASE STRING CONCATE STRING ENTRE SI CON EL OPERADOR + { SI UNO NO ES STRING LO TRANSFORMA EN STRING ANTES DE CONCATENAR }
 // LA CLASE SYSTEM.OUT Y UTIL SON OTRAS MUY POPULARES Y ARRAYLIST PERMITE LISTAS DE TAMAÑO DINAMICO
 
-// L SENTENCIA CONDICIONAL ES
+// L SENTENCIA CONDICIONAL ES { break Y continue }
 
 if      (cond_1) {} 
 else if (cond_2) {}
@@ -215,6 +215,50 @@ public abstract class Forma
 
 // HAY CLASES *OBJET* Y *CLASS*
 
+// UNA INTERFAZ DEBE SER DEFINIDA E IMPLEMENTADA
+// UNA INTERFAZ ES IMPLEMENTADA POR UNA CLASE
+
+interface Funcionario_ITRFZ
+{
+    void trabajar();
+}
+
+class Funcionario implements Funcionario_ITRFZ
+{
+    @Override
+    public void trabajar() {}
+}
+
+class Estudiante
+{
+    ...
+}
+
+class Ayudante extends Estudiante implements Funcionario_ITRFZ {
+   private Funcionario func;
+   
+   public Ayudante()
+   {
+        this.func = new Funcionario();
+   }
+   
+   @Override
+   public void trabajar()
+   {
+   func.trabajar(); 
+   }
+}
+
+// LAS CLASES ANIDADAS SE UBICAN A ACCESO EFIMERO DE UNA CLASE
+// LAS CLASES ANIDADES ESTATICAS SE LLAMAN CLASES ANIDADAS ESTATICAS                  { DE LA CLASE }
+// LAS CLASES ANIDADES NO ESTATICAS SE LLAMAN CLASES ANIDADAS NO ESTATICAS O INTERNAS { DEL OBJETO  }
+
+// UNA CLASE INTERNA QUE SE INSTACIA SOLO UNA VEZ PUEDE COMPRIMERSE EN UNA SOLA CLASE ANONIMA
+// SI UNA CLASE ANONIMA TIENE EXACTAMENTE 1 METODO PUEDE SER NOTADA POR UN EXPRECION LAMBDA
+
+// ...
+
+// ... COPIA Y EXEPCIONES Y PAQUETES
 
 
 
