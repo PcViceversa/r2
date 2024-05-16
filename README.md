@@ -255,24 +255,95 @@ class Ayudante extends Estudiante implements Funcionario_ITRFZ {
 
 public class Main
 {
+    public static void main(String[] args)
+    {
+    
+   ClaseExterna externa = new ClaseExterna(10);
+   ClaseExterna.ClaseAnidada anidada = externa.new ClaseAnidada(20);
+
+   anidada.mostrarValorAnidado();                // ---> 20
+   anidada.mostrarValorExternoDesdeAnidado();    // ---> 10
+   externa.mostrarValorExterno();                // ---> 10
+    }
+}
+
+public class ClaseExterna {
+   private int valorExterno;
+   public ClaseExterna(int valorExterno) { this.valorExterno = valorExterno; }
+   public void mostrarValorExterno() { System.out.println( "ext" + valorExterno ); }
+
+   public class ClaseAnidada {
+        private int valorAnidado;
+        public ClaseAnidada(int valorAnidado) { this.valorAnidado = valorAnidado; }
+        public void mostrarValorAnidado() { System.out.println("int" + valorAnidado); }
+        public void mostrarValorExternoDesdeAnidado() { System.out.println("ext-ani" + valorExterno); }
+    }
+}
+
+// O ESTATICA
+
+public class Main {
     public static void main(String[] args) {
-    ClaseExterna externa = new ClaseExterna(10);
-
-        // Crear una instancia de ClaseAnidada
-        ClaseExterna.ClaseAnidada anidada = externa.new ClaseAnidada(20);
-
-        // Acceder a los métodos de ClaseAnidada
-        anidada.mostrarValorAnidado();
-        anidada.mostrarValorExternoDesdeAnidado();
-
-        // Acceder a los métodos de ClaseExterna
-        externa.mostrarValorExterno();
+        Carro miCarro = new Carro("Toyota", 2020);
+        System.out.println(miCarro.getInfo());
+        Carro.Motor motor = new Carro.Motor(2000);
+        System.out.println(motor.getInfo());
+    }
+}
+public class Carro {
+    private String modelo;
+    private int año;
+    
+   public Carro(String modelo, int año) {
+        this.modelo = modelo;
+        this.año = año;
+    }
+    
+   public String getInfo() {
+        return "Modelo: " + modelo + ", Año: " + año;
+    }
+    
+   public static class Motor {
+        private int cilindraje;
+        public Motor(int cilindraje) {
+            this.cilindraje = cilindraje;
+        }
+        public String getInfo() {
+            return "Cilindraje: " + cilindraje + "cc";
+        }
     }
 }
 
 
 // UNA CLASE INTERNA QUE SE INSTACIA SOLO UNA VEZ PUEDE COMPRIMERSE EN UNA SOLA CLASE ANONIMA
+
+public class MiClase implements MiInterfaz {
+    @Override
+    public void miMetodo() {
+        // Implementación del método miMetodo
+    }
+}
+
+MiInterfaz miInterfaz = new MiClase();
+miInterfaz.miMetodo();
+
+// O 
+
+MiInterfaz miInterfaz = new MiInterfaz() {
+    ... atributos
+    @Override
+    public void miMetodo() {
+        // Implementación del método miMetodo
+    }
+};
+
 // SI UNA CLASE ANONIMA TIENE EXACTAMENTE 1 METODO PUEDE SER NOTADA POR UN EXPRECION LAMBDA
+
+MiInterfaz miInterfaz = () ->
+{
+    // Implementación del método miMetodo
+};
+
 
 // ...
 
