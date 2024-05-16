@@ -64,7 +64,7 @@ class Main
 // **LOS NOMBRES DE OBJETOS SON SOLO UNA REFERENCIA Y NO EL OBJENTO EN SI**
 
 // LA CLASE STRING CONCATE STRING ENTRE SI CON EL OPERADOR + { SI UNO NO ES STRING LO TRANSFORMA EN STRING ANTES DE CONCATENAR }
-// LA CLASE SYSTEM.OUT Y UTIL SON OTRAS MUY POPULARES
+// LA CLASE SYSTEM.OUT Y UTIL SON OTRAS MUY POPULARES Y ARRAYLIST PERMITE LISTAS DE TAMAÑO DINAMICO
 
 // L SENTENCIA CONDICIONAL ES
 
@@ -116,7 +116,7 @@ for ( int n=0 ; n<triag.length ; n++ )
 // int [] b = a;
 // a CAMBIA b Y VICEVERSA
 
-// CODIGO ESPECIAL
+// **CODIGO ESPECIAL**
 // {}        SE LLAMA LA PRIMERA VEZ EN CADA OBJETO
 // static {} SE LA LLAMA LA PRIEMRA VEZ EN CADA CLASE **Y ANTES DEL MAIN**
 // finalize() Garbage Collection { RECOLECCION DE BASURA }
@@ -135,6 +135,87 @@ for ( int n=0 ; n<triag.length ; n++ )
 
 // SE USA HERENCIA CON
 class Humano extends Animal {​}
+
+// LOS CONTRUCTORES NO TIENEN RETORNO
+
+class Employee
+{
+   public Employee(String n, double s) { name = n; salary = s;     }
+   public Employee(double s)           { this( "#" + nextId , s ); }
+   public Employee()                   { this( "#" + nextId , 0 ); }
+
+   public String getName()   { return name;   }
+   public double getSalary() { return salary; }
+   public int getId()        { return id;     }
+   
+   {
+      id = nextId;
+      nextId++;
+   }
+
+   static {
+      nextId = 111;
+   }
+
+   private static int nextId;
+   private int id;
+   private String name = "";
+   private double salary;
+}
+
+// Y POLIMORFISMO
+
+class Employee
+{  
+   public Employee(String n, double s, int y) { name = n; salary = s; year = y; }
+
+   public String getName()   { return name;   }
+   public double getSalary() { return salary; }
+   public int getYear()      { return year;   }
+
+   public void raiseSalary(double byPercent)
+   {  
+      double raise = salary * byPercent / 100;
+      salary += raise;
+   }
+
+   private   String name;
+   protected double salary;
+   private   int    year;
+}
+
+class Manager extends Employee
+{  
+   public Manager(String n, double s, int y) { super(n, s, y); bonus = 0; }
+
+   public void setBonus(double b) { bonus = b; }
+   public double getSalary()
+   { 
+      double baseSalary = super.salary; // super.salary o super.getSalary()
+      return baseSalary + bonus + 1;
+   }
+
+   private double bonus;
+}
+
+// OBJETOS RESPONDEN CON SUS METODOS RE-DEFINIDOS SIN IMPORTAR REFERENCIA
+// OBJETOS SOLO OFRECEN SERVICIOS PARA METODOS DEFINIDOS EN SU REFERENCIA
+// DE ESO SE ENCARGA EL LIGADO-DINAMICO { ELEGIR METODO DE ENTRE TODOS DEL MISMO NOMBRE EN TIEMPO DE EJECUCION CON "TARGET THIS" }
+
+// CASTEO PASA DE :  Employee e = new Manager();​ -> Manager m = (Manager) e;
+// ANTE LA DUDA   : if (e instanceof Manager) { ​Manager m = (Manager) e;​ }
+
+// BASTA QUE 1 SOLO METODO ESTE DEFINIDO Y NO IMPLEMENTADO PARA QUE LA CLASE SEA ABSTRACTA
+public abstract class Forma
+{​
+    ...​
+    public abstract double getArea();​
+    ..​
+}
+
+// HAY CLASES *OBJET* Y *CLASS*
+
+
 
 
 
